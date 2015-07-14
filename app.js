@@ -7,7 +7,7 @@ angular.module('flapperNews', ['ui.router'])
 					url: '/home',
 					templateUrl: '/home.html',
 					controller: 'MainCtrl'
-				});
+				})
 
 				.state('posts', {
 					url: '/posts/{id}',
@@ -26,7 +26,7 @@ angular.module('flapperNews', ['ui.router'])
 		return o;
 	}])
 
-	.controller('MainCtrl', ['$scope', 'posts'
+	.controller('MainCtrl', ['$scope', 'posts',
 		function($scope, posts){
 			$scope.test = 'Hello World!';
 			$scope.posts = posts.posts;
@@ -48,9 +48,9 @@ angular.module('flapperNews', ['ui.router'])
 			$scope.incrementUpvotes = function(post) {
 				post.upvotes += 1;
 			};
-		}]);
+		}])
 
-	.controller('PostsCtrl', ['$scope', '$stateParams', 'posts', function($scope, $stateParams, posts){
+	.controller('PostsCtrl', ['$scope', '$stateParams', 'posts',
 		function($scope, $stateParams, posts) {
 			$scope.post = posts.posts[$stateParams.id];
 			$scope.addComment = function(){
@@ -63,4 +63,4 @@ angular.module('flapperNews', ['ui.router'])
 				$scope.body = '';
 			};
 		}
-	}]);
+	])
